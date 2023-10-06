@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
-}
+/*:root {*/
+/*    --foreground-rgb: 0, 0, 0;*/
+/*    --background-start-rgb: 214, 219, 220;*/
+/*    --background-end-rgb: 255, 255, 255;*/
+/*}*/
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -17,10 +17,20 @@
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-            to bottom,
-            transparent,
-            rgb(var(--background-end-rgb))
-    ) rgb(var(--background-start-rgb));
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color: #e5e5e5;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 20px;
+    height: 100%;
 }
