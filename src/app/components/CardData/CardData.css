@@ -1,0 +1,30 @@
+.card-data-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    font-size: small;
+    text-align: start;
+    margin: auto;
+}
+
+.card-image-container {
+    /*width: 100%;*/
+    /*height: 50%;*/
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.card-data-title {
+    font-weight: bold;
+}
+
+.flavor-text {
+    font-style: italic;
+}
+
+img {
+    aspect-ratio: auto;
+    width: 75%;
+    margin: auto;
+}
