@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import "./Search.css";
+import Button from "@/app/components/Button/Button";
 import { CardData } from "@/app/components/CardData/CardData";
 
 export const Search = () => {
@@ -27,6 +28,10 @@ export const Search = () => {
     }, 75);
   };
 
+  const handleResponse = (response) => {
+    console.log("button was clicked");
+  };
+
   return (
     <div className="search-container">
       <div className="input-button-container">
@@ -36,9 +41,10 @@ export const Search = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button onClick={handleSearch}>Search</button>
-        <button>Add to Deck</button>
-        <button>Remove from Deck</button>
+        <Button onClick={handleSearch}>Search</Button>
+        <Button onClick={handleResponse}>Add to Deck</Button>
+        {/* <button onClick={handleLogResponse}>Add to Deck</button> */}
+        {/* <button>Remove from Deck</button> */}
       </div>
       <div>{card ? <CardData card={card} /> : <p>{errorMessage}</p>}</div>
     </div>
