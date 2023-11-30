@@ -43,8 +43,6 @@ export const Search = () => {
         />
         <Button onClick={handleSearch}>Search</Button>
         <Button onClick={handleResponse}>Add to Deck</Button>
-        {/* <button onClick={handleLogResponse}>Add to Deck</button> */}
-        {/* <button>Remove from Deck</button> */}
       </div>
       <div>{card ? <CardData card={card} /> : <p>{errorMessage}</p>}</div>
     </div>
