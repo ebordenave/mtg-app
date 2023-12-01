@@ -1,12 +1,12 @@
 import React from "react";
-import { Search } from "@/app/components/Search/Search";
+import DeckBuilder from "@/app/components/DeckBuilder/DeckBuilder";
 
 export default function Home() {
   return (
     <main>
       <div className="main-container">
         <div>
-          <Search />
+          <DeckBuilder />
         </div>
       </div>
     </main>
