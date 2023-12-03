@@ -4,12 +4,33 @@ import Button from "@/app/components/Button/Button";
 import { Deck } from "@/app/components/Deck/Deck";
 import SearchInput from "@/app/components/SeachInput/SearchInput";
 import DeckList from "@/app/components/DeckList/DeckList";
-import SearchButton from "@/app/components/SeachButton/SearchButton";
+import Modal from "@/app/components/Modal/Modal";
+import Form from "@/app/components/InputForm/Form";
 
 const DeckBuilder = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [card, setCard] = useState(null);
   const [userDeck, setUserDeck] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({});
+
+  const handleChange = () => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(formData);
+  };
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   const url = `https://api.scryfall.com/cards/named?fuzzy=${searchQuery}`;
 
@@ -56,8 +77,13 @@ const DeckBuilder = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <SearchButton onClick={handleCardSearch} />
-        <Button onClick={handleCreateDeck}>Create Deck</Button>
+        <Button onClick={handleCardSearch}>Search Button</Button>
+        <Button onClick={handleOpenModal}>Create Deck</Button>
+        {showModal && (
+          <Modal title="Create Deck" onClose={handleCloseModal}>
+            <Form onSubmit={handleSubmit} />
+          </Modal>
+        )}
         <Button onClick={handleAddToDeck} disabled={!card}>
           Add to Deck
         </Button>
